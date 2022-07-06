@@ -33,7 +33,6 @@
   "devDependencies": {
     "bumpp": "^8.2.1",
     "cross-env": "^7.0.3",
-    "fs-extra": "^10.1.0",
     "vitest": "^0.17.0"
   },
   "dependencies": {

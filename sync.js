@@ -1,14 +1,14 @@
-import fse from "fs-extra";
+import fs from "node:fs";
 import path from "node:path";
 import MagicString from "magic-string";
 import process from "node:process";
 import { createHash } from "node:crypto";
 
 export function readHash(filePath = path.join(process.cwd(), ".env.example")) {
-  if (!fse.pathExistsSync(filePath)) {
+  if (!fs.existsSync(filePath)) {
     return null;
   }
-  const content = fse.readFileSync(filePath, "utf8");
+  const content = fs.readFileSync(filePath, "utf8");
   const result = /# sync-env-example:(.+)/.exec(content);
   const hash = result[1];
   if (typeof hash === "string") return hash.trim();
@@ -20,8 +20,8 @@ export function shasum(buffer) {
 }
 
 export function readEnvBuffer(envPath = path.join(process.cwd(), ".env")) {
-  if (!fse.pathExistsSync(envPath)) return null;
-  return fse.readFileSync(envPath);
+  if (!fs.existsSync(envPath)) return null;
+  return fs.readFileSync(envPath);
 }
 
 export function writeEnvFile(
@@ -31,7 +31,7 @@ export function writeEnvFile(
 ) {
   if (content == null) return;
   content = `# sync-env-example:${hash}\n` + content;
-  fse.writeFileSync(envPath, content);
+  fs.writeFileSync(envPath, content);
 }
 
 /**
