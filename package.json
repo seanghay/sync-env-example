@@ -8,6 +8,7 @@
   "module": "./index.js",
   "scripts": {
     "test": "vitest",
+    "prepublishOnly": "cross-env NODE_ENV=production CI=true vitest --run",
     "test:ci": "cross-env NODE_ENV=production CI=true vitest --run",
     "create:release": "bumpp"
   },
