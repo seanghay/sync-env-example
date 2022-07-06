@@ -12,9 +12,9 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
 (function () {
-  const { input, output } = yargs(hideBin(process.argv))
+  const { input, output, replacer } = yargs(hideBin(process.argv))
     .scriptName("sync-env-example")
-    .usage("$0 --input .env --output .env.example")
+    .usage("$0 --input .env --output .env.example --replacer my-replacer")
     .help().argv;
 
   const inputPath = path.join(process.cwd(), input || ".env");
@@ -24,7 +24,11 @@ import { hideBin } from "yargs/helpers";
   if (!envBuffer) {
     return;
   }
-  const hash = shasum(envBuffer);
+
+  const fileHash = shasum(envBuffer);
+  const replacerHash = shasum(Buffer.from(replacer || ""));
+  const hash = shasum(Buffer.from(fileHash + replacerHash));
+
   const currentHash = readHash(outputPath);
   if (currentHash) {
     if (hash === currentHash) {
@@ -33,5 +37,9 @@ import { hideBin } from "yargs/helpers";
   }
   const env = envBuffer.toString();
   if (env == null) return;
-  writeEnvFile(redact(env), hash, outputPath);
+  writeEnvFile(
+    redact(env, () => replacer || ""),
+    hash,
+    outputPath
+  );
 })();

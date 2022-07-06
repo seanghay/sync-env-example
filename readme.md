@@ -8,6 +8,21 @@ Create an `.env.example` from your local `.env` without values (just keys)
 npx sync-env-example
 ```
 
+#### Input
+
+```env
+# Comment
+KEY1=abc
+KEY2=abc
+```
+
+#### Output
+
+```env
+# Comment
+KEY1=
+KEY2=
+```
 
 ### License
 
