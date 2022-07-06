@@ -1,8 +1,9 @@
 # Sync `.env.example`
 
-Create an `.env.example` from your local `.env` without values (just keys) 
+Create an `.env.example` from your local `.env` without values (just keys. It won't do anything rather than just removing values. No parsing.
 
 [![test](https://github.com/seanghay/sync-env-example/actions/workflows/test.yml/badge.svg)](https://github.com/seanghay/sync-env-example/actions/workflows/test.yml)
+
 
 ```sh
 npx sync-env-example
