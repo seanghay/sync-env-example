@@ -1,0 +1,41 @@
+{
+  "name": "sync-env-example",
+  "version": "0.0.0",
+  "description": "Create an .env.example with only keys from local .env",
+  "bin": "bin/cli.js",
+  "main": "index.js",
+  "type": "module",
+  "module": "./index.js",
+  "scripts": {
+    "test": "vitest",
+    "test:ci": "cross-env NODE_ENV=production CI=true vitest --run",
+    "create:release": "bumpp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanghay/sync-env-example.git"
+  },
+  "keywords": [
+    "env"
+  ],
+  "files": [
+    "index.js",
+    "sync.js",
+    "bin"
+  ],
+  "author": "Seanghay Yath <seanghay.dev@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/seanghay/sync-env-example/issues"
+  },
+  "homepage": "https://github.com/seanghay/sync-env-example#readme",
+  "devDependencies": {
+    "bumpp": "^8.2.1",
+    "cross-env": "^7.0.3",
+    "fs-extra": "^10.1.0",
+    "vitest": "^0.17.0"
+  },
+  "dependencies": {
+    "magic-string": "^0.26.2"
+  }
+}
