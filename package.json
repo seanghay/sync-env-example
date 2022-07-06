@@ -1,6 +1,6 @@
 {
   "name": "sync-env-example",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Create an .env.example with only keys from local .env",
   "bin": "bin/cli.js",
   "main": "index.js",
