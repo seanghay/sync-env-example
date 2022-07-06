@@ -9,6 +9,9 @@ import {
 
 (function () {
   const envBuffer = readEnvBuffer();
+  if (!envBuffer) {
+    return;
+  }
   const hash = shasum(envBuffer);
   const currentHash = readHash();
   if (currentHash) {
