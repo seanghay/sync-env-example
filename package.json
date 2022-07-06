@@ -38,5 +38,8 @@
   "dependencies": {
     "magic-string": "^0.26.2",
     "yargs": "^17.5.1"
+  },
+  "engines": {
+    "node": ">=14.16"
   }
 }
