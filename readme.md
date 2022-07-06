@@ -8,7 +8,7 @@ Create an `.env.example` from your local `.env` without values (just keys)
 npx sync-env-example
 ```
 
-#### Input
+Input `.env`
 
 ```env
 # Comment
@@ -16,12 +16,35 @@ KEY1=abc
 KEY2=abc
 ```
 
-#### Output
+Output `.env.example`
 
 ```env
 # Comment
 KEY1=
 KEY2=
+```
+
+
+## Advanced usage
+
+```sh
+npx sync-env-example --input .env --output .env.example --replacer MY_REPLACER
+```
+
+Input `.env`
+
+```env
+# Comment
+KEY1=abc
+KEY2=abc
+```
+
+Output `.env.example`
+
+```env
+# Comment
+KEY1=MY_REPLACER
+KEY2=MY_REPLACER
 ```
 
 ### License
